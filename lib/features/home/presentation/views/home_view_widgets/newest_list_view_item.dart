@@ -46,7 +46,7 @@ class NewestListViewItem extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      volumeInfo.authors!.isNotEmpty? volumeInfo.authors![0]: '',
+                      volumeInfo.authors!.isNotEmpty? volumeInfo.authors![0] : '',
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       style: Styles.textStyle14.copyWith(color: Colors.grey),
