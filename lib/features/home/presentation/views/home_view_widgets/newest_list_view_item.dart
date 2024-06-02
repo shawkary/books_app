@@ -14,7 +14,7 @@ class NewestListViewItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        navigateTo(context, BookDetailsViewBody());
+        navigateTo(context, BookDetailsViewBody(volumeInfo));
       },
       child: SizedBox(
         height: MediaQuery.of(context).size.height * .14,

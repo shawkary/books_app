@@ -1,10 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:ibrahim_project/core/utiles/assets.dart';
 
+import '../../../data/models/book_model/VolumeInfo.dart';
 
 class BookDetailsBigImage extends StatelessWidget {
-  const BookDetailsBigImage({super.key});
+  const BookDetailsBigImage(this.volumeInfo, {super.key});
+  final VolumeInfo volumeInfo;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,7 @@ class BookDetailsBigImage extends StatelessWidget {
               child: CachedNetworkImage(
                 fit: BoxFit.fill,
                 placeholder: (context, url) => const Center(child: CircularProgressIndicator(),),
-                imageUrl: AssetsData.tiger,
+                imageUrl: volumeInfo.imageLinks!.thumbnail!,
               )
           ),
         ));

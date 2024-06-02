@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:ibrahim_project/features/home/data/models/book_model/VolumeInfo.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../../../../core/utiles/styles.dart';
 
-
 class TwoButtons extends StatelessWidget {
-  const TwoButtons({super.key});
+  const TwoButtons(this.volumeInfo, {super.key});
+  final VolumeInfo volumeInfo;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +27,7 @@ class TwoButtons extends StatelessWidget {
           ),
           MaterialButton(
             onPressed: ()async{
-              Uri uri = Uri.parse('www.google.com');
+              Uri uri = Uri.parse(volumeInfo.previewLink!);
               if (await canLaunchUrl(uri)) {
                 await launchUrl(uri);
               }

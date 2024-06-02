@@ -15,7 +15,7 @@ class FeaturedListViewItem extends StatelessWidget {
     return GestureDetector(
       onTap: ()
       {
-        navigateTo(context, const BookDetailsViewBody());
+        navigateTo(context, BookDetailsViewBody(volumeInfo));
       },
       child: ClipRRect(
         borderRadius: BorderRadius.circular(10),

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
-
+import '../../search_cubit/cubit.dart';
 
 class SearchTextField extends StatelessWidget {
-  const SearchTextField({super.key});
+  const SearchTextField(this.cubit, {super.key});
+  final SearchBooksCubit cubit;
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +12,7 @@ class SearchTextField extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 30.0),
       child: TextField(
         onChanged: (value) {
-
+          cubit.fetchSearchBooks(value);
         },
         decoration: InputDecoration(
           hintText: 'search',
