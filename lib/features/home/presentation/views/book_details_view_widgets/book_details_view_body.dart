@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ibrahim_project/features/home/presentation/views/book_details_view_widgets/similar_list_view.dart';
 import 'package:ibrahim_project/features/home/presentation/views/book_details_view_widgets/two_buttons.dart';
 import '../../../../../core/utiles/styles.dart';
 import '../home_view_widgets/newest_list_view_item.dart';
@@ -32,6 +33,11 @@ class BookDetailsViewBody extends StatelessWidget {
           const BookRating(),
           const SizedBox(height: 30),
           const TwoButtons(),
+          const SizedBox(height: 40),
+          const Align(alignment: AlignmentDirectional.topStart,
+              child: Text('   You can also like', style: Styles.textStyle14)),
+          const SizedBox(height: 15),
+          const SimilarBooksListView(),
         ],
       ),
     );
