@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'features/splash/presentation/views/splash_view.dart';
 
 
 void main() {
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark(),
-      home: const Scaffold(),
+      home: const SplashView(),
     );
   }
 }
