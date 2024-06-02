@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ibrahim_project/features/home/data/models/book_model/VolumeInfo.dart';
 import 'package:ibrahim_project/features/home/presentation/views/book_details_view_widgets/similar_list_view.dart';
 import 'package:ibrahim_project/features/home/presentation/views/book_details_view_widgets/two_buttons.dart';
 import '../../../../../core/utiles/styles.dart';
@@ -30,7 +31,7 @@ class BookDetailsViewBody extends StatelessWidget {
               style: Styles.textStyle16
                   .copyWith(color: Colors.grey, fontStyle: FontStyle.italic)),
           const SizedBox(height: 15),
-          const BookRating(),
+          BookRating(VolumeInfo as VolumeInfo),
           const SizedBox(height: 30),
           const TwoButtons(),
           const SizedBox(height: 40),

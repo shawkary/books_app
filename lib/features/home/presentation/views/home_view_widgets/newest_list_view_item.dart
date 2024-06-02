@@ -1,19 +1,20 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:ibrahim_project/core/utiles/assets.dart';
 import 'package:ibrahim_project/core/utiles/components.dart';
+import 'package:ibrahim_project/features/home/data/models/book_model/VolumeInfo.dart';
 import 'package:ibrahim_project/features/home/presentation/views/book_details_view_widgets/book_details_view_body.dart';
 import '../../../../../core/utiles/styles.dart';
 
-
 class NewestListViewItem extends StatelessWidget {
-  const NewestListViewItem({super.key});
+  const NewestListViewItem(this.volumeInfo, {super.key});
+  final VolumeInfo volumeInfo;
+
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        navigateTo(context, const BookDetailsViewBody());
+        navigateTo(context, BookDetailsViewBody());
       },
       child: SizedBox(
         height: MediaQuery.of(context).size.height * .14,
@@ -25,7 +26,7 @@ class NewestListViewItem extends StatelessWidget {
                 aspectRatio: 1 / 1.6,
                 child: CachedNetworkImage(
                   fit: BoxFit.fill,
-                  imageUrl: AssetsData.tiger,
+                  imageUrl: volumeInfo.imageLinks!.thumbnail!,
                 ),
               ),
             ),
@@ -35,17 +36,17 @@ class NewestListViewItem extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const SizedBox(
+                    SizedBox(
                       width: 250,
                       child: Text(
-                        'title',
+                        '${volumeInfo.title}',
                         overflow: TextOverflow.ellipsis,
                         maxLines: 2,
                         style: Styles.textStyle20,
                       ),
                     ),
                     Text(
-                      'author',
+                      volumeInfo.authors!.isNotEmpty? volumeInfo.authors![0]: '',
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       style: Styles.textStyle14.copyWith(color: Colors.grey),
@@ -58,7 +59,7 @@ class NewestListViewItem extends StatelessWidget {
                         const SizedBox(
                           width: 80,
                         ),
-                        const BookRating(),
+                        BookRating(volumeInfo),
                       ],
                     ),
                   ],
@@ -73,7 +74,8 @@ class NewestListViewItem extends StatelessWidget {
 }
 
 class BookRating extends StatelessWidget {
-  const BookRating({super.key});
+  const BookRating(this.volumeInfo, {super.key});
+  final VolumeInfo volumeInfo;
 
   @override
   Widget build(BuildContext context) {
@@ -88,7 +90,8 @@ class BookRating extends StatelessWidget {
             style:
             Styles.textStyle16.copyWith(decoration: TextDecoration.none)),
         const SizedBox(width: 10),
-        Text('pages(250)',
+        Text(volumeInfo.pageCount != null ?
+        'Pages(${volumeInfo.pageCount})' : '000',
           style: Styles.textStyle14
               .copyWith(decoration: TextDecoration.none, color: Colors.grey),
         )

@@ -1,12 +1,13 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:ibrahim_project/core/utiles/assets.dart';
 import 'package:ibrahim_project/core/utiles/components.dart';
+import 'package:ibrahim_project/features/home/data/models/book_model/VolumeInfo.dart';
 import '../book_details_view_widgets/book_details_view_body.dart';
 
 
 class FeaturedListViewItem extends StatelessWidget {
-  const FeaturedListViewItem({super.key});
+  const FeaturedListViewItem(this.volumeInfo, {super.key});
+  final VolumeInfo volumeInfo;
 
 
   @override
@@ -22,7 +23,7 @@ class FeaturedListViewItem extends StatelessWidget {
           aspectRatio: 1 / 1.6,
           child: CachedNetworkImage(
             fit: BoxFit.fill,
-            imageUrl: AssetsData.tiger,
+            imageUrl: volumeInfo.imageLinks!.thumbnail!,
             placeholder: (context, url) => const Center(child: CircularProgressIndicator()),
             errorWidget: (context, url, error) => const Icon(Icons.error),
           ),
