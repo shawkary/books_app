@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ibrahim_project/features/search/presentation/views/widgets/search_text_field.dart';
 
 
 
@@ -7,9 +8,9 @@ class SearchViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-     return Column(
+     return const Column(
             children: [
-
+              SearchTextField(),
             ],
           );
   }
