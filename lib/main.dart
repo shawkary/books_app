@@ -6,6 +6,7 @@ import 'core/utiles/components.dart';
 import 'core/utiles/serice_locator.dart';
 import 'features/home/presentation/manager/featured_cubit/cubit.dart';
 import 'features/home/presentation/manager/newest_cubit/cubit.dart';
+import 'features/home/presentation/manager/similar_cubit/cubit.dart';
 import 'features/splash/presentation/views/splash_view.dart';
 
 
@@ -32,6 +33,11 @@ class MyApp extends StatelessWidget {
             getIt.get<HomeRepoImpl>(),
           )..fetchNewestBooks(),
         ),
+        BlocProvider(
+          create: (context) => SimilarBooksCubit(
+            getIt.get<HomeRepoImpl>(),
+          )..fetchSimilarBooks(),
+        )
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

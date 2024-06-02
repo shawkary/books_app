@@ -6,4 +6,5 @@ import '../models/book_model/Items.dart';
 abstract class HomeRepo{
   Future<Either<Failure, List<Items>>> fetchFeaturedBooks();
   Future<Either<Failure, List<Items>>> fetchNewestBooks();
+  Future<Either<Failure,List<Items>>> fetchSimilarBooks();
 }
