@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:ibrahim_project/core/utiles/components.dart';
 import 'package:ibrahim_project/features/splash/presentation/views/widgets/sliding_text.dart';
+import '../../../../home/presentation/views/home_view.dart';
+
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -53,7 +56,7 @@ class _SplashViewBodyState extends State<SplashViewBody>with SingleTickerProvide
 
   void navigateToHome(){
     Future.delayed(const Duration(seconds: 2), () {
-
+      navigateAndFinish(context, const HomeView());
     },);
   }
 }
