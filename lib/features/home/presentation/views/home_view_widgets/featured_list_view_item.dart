@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:ibrahim_project/core/utiles/assets.dart';
 
 
-class ListViewItem extends StatelessWidget {
-  const ListViewItem({super.key});
+class FeaturedListViewItem extends StatelessWidget {
+  const FeaturedListViewItem({super.key});
 
 
   @override

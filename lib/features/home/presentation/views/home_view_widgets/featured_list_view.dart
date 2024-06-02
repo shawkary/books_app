@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'list_view_item.dart';
+import 'featured_list_view_item.dart';
 
 
 class FeaturedListView extends StatelessWidget {
@@ -13,7 +13,7 @@ class FeaturedListView extends StatelessWidget {
               height: MediaQuery.of(context).size.height * .28,
               child: ListView.separated(
                 itemBuilder: (context, index) {
-                  return ListViewItem();
+                  return FeaturedListViewItem();
                 },
                 separatorBuilder: (context, index) => const SizedBox(width: 10),
                 itemCount: 10,
