@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ibrahim_project/constants.dart';
 import 'features/splash/presentation/views/splash_view.dart';
 
 
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark(),
+      theme: ThemeData.dark().copyWith(scaffoldBackgroundColor: primaryColor),
       home: const SplashView(),
     );
   }

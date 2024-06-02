@@ -88,7 +88,7 @@ class BookRating extends StatelessWidget {
             style:
             Styles.textStyle16.copyWith(decoration: TextDecoration.none)),
         const SizedBox(width: 10),
-        Text('(pages 250)',
+        Text('pages(250)',
           style: Styles.textStyle14
               .copyWith(decoration: TextDecoration.none, color: Colors.grey),
         )
