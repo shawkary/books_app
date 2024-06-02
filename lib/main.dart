@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ibrahim_project/constants.dart';
+import 'core/utiles/components.dart';
 import 'features/splash/presentation/views/splash_view.dart';
 
 
 void main() {
+  Bloc.observer = MyBlocObserver();
   runApp(const MyApp());
 }
 
