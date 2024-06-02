@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../../../core/utiles/assets.dart';
+import '../../../../../core/utiles/components.dart';
+import '../../../../search/presentation/views/search_view.dart';
 
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar({super.key});
@@ -15,7 +17,7 @@ class CustomAppBar extends StatelessWidget {
           GestureDetector(
             onTap: ()
             {
-              //navigateTo(context, const SearchView());
+              navigateTo(context, const SearchView());
             },
             child: const Icon(Icons.search, size: 30,),
           )

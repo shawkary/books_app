@@ -1,6 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:ibrahim_project/core/utiles/assets.dart';
+import 'package:ibrahim_project/core/utiles/components.dart';
+import 'package:ibrahim_project/features/home/presentation/views/book_details_view_widgets/book_details_view_body.dart';
 import '../../../../../core/utiles/styles.dart';
 
 
@@ -11,7 +13,7 @@ class NewestListViewItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-
+        navigateTo(context, const BookDetailsViewBody());
       },
       child: SizedBox(
         height: MediaQuery.of(context).size.height * .14,

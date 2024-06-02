@@ -1,6 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:ibrahim_project/core/utiles/assets.dart';
+import 'package:ibrahim_project/core/utiles/components.dart';
+import '../book_details_view_widgets/book_details_view_body.dart';
 
 
 class FeaturedListViewItem extends StatelessWidget {
@@ -12,7 +14,7 @@ class FeaturedListViewItem extends StatelessWidget {
     return GestureDetector(
       onTap: ()
       {
-
+        navigateTo(context, const BookDetailsViewBody());
       },
       child: ClipRRect(
         borderRadius: BorderRadius.circular(10),
