@@ -18,7 +18,7 @@ class SearchListView extends StatelessWidget {
               padding: const EdgeInsets.only(left: 30.0),
               child: ListView.separated(
                 itemBuilder: (context, index) {
-                  return NewestListViewItem(state.searchBooks[index].volumeInfo!);
+                  return NewestListViewItem(state.searchBooks[index]);
                 },
                 separatorBuilder: (context, index) => const SizedBox(height: 15),
                 itemCount: state.searchBooks.length,

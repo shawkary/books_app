@@ -1,20 +1,22 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:ibrahim_project/core/utiles/components.dart';
+import 'package:ibrahim_project/features/home/data/models/book_model/Items.dart';
 import 'package:ibrahim_project/features/home/data/models/book_model/VolumeInfo.dart';
-import 'package:ibrahim_project/features/home/presentation/views/book_details_view_widgets/book_details_view_body.dart';
 import '../../../../../core/utiles/styles.dart';
+import '../book_details_view.dart';
+
 
 class NewestListViewItem extends StatelessWidget {
-  const NewestListViewItem(this.volumeInfo, {super.key});
-  final VolumeInfo volumeInfo;
+  const NewestListViewItem(this.item, {super.key});
+  final Items item;
 
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        navigateTo(context, BookDetailsViewBody(volumeInfo));
+        navigateTo(context, BookDetailsView(item));
       },
       child: SizedBox(
         height: MediaQuery.of(context).size.height * .14,
@@ -26,7 +28,7 @@ class NewestListViewItem extends StatelessWidget {
                 aspectRatio: 1 / 1.6,
                 child: CachedNetworkImage(
                   fit: BoxFit.fill,
-                  imageUrl: volumeInfo.imageLinks!.thumbnail!,
+                  imageUrl: item.volumeInfo!.imageLinks!.thumbnail!,
                 ),
               ),
             ),
@@ -39,14 +41,14 @@ class NewestListViewItem extends StatelessWidget {
                     SizedBox(
                       width: 250,
                       child: Text(
-                        '${volumeInfo.title}',
+                        '${item.volumeInfo!.title}',
                         overflow: TextOverflow.ellipsis,
                         maxLines: 2,
                         style: Styles.textStyle20,
                       ),
                     ),
                     Text(
-                      volumeInfo.authors!.isNotEmpty? volumeInfo.authors![0] : '',
+                      item.volumeInfo!.authors!.isNotEmpty? item.volumeInfo!.authors![0] : 'Unknown',
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       style: Styles.textStyle14.copyWith(color: Colors.grey),
@@ -59,7 +61,7 @@ class NewestListViewItem extends StatelessWidget {
                         const SizedBox(
                           width: 80,
                         ),
-                        BookRating(volumeInfo),
+                        BookRating(item.volumeInfo!),
                       ],
                     ),
                   ],

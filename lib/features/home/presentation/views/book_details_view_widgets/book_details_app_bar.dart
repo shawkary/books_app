@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:ibrahim_project/core/utiles/components.dart';
+import '../../../../cart/presentation/views/cart_view.dart';
+
 
 class BookDetailsAppBar extends StatelessWidget {
   const BookDetailsAppBar({super.key});
@@ -6,20 +9,23 @@ class BookDetailsAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 50, left: 30, right: 30),
+      padding: const EdgeInsets.only(top: 40, left: 20, right: 30),
       child: Row(
         children: [
-          GestureDetector(
-            onTap: ()
+          IconButton(
+            onPressed: ()
             {
               Navigator.pop(context);
             },
-            child: const Icon(Icons.close, size: 30,),
+            icon: const Icon(Icons.close, size: 30, color: Colors.white,),
           ),
           const Spacer(),
-          GestureDetector(
-            onTap: (){},
-            child: const Icon(Icons.shopping_cart_outlined, size: 30,),
+          IconButton(
+            onPressed: ()
+            {
+              navigateTo(context, const CartView());
+            },
+            icon: const Icon(Icons.shopping_cart_outlined, size: 30, color: Colors.white,),
           ),
         ],
       ),

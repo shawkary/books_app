@@ -20,7 +20,7 @@ class FeaturedListView extends StatelessWidget {
               height: MediaQuery.of(context).size.height * .28,
               child: ListView.separated(
                 itemBuilder: (context, index) {
-                  return FeaturedListViewItem(state.books[index].volumeInfo!);
+                  return FeaturedListViewItem(state.books[index]);
                 },
                 separatorBuilder: (context, index) => const SizedBox(width: 10),
                 itemCount: state.books.length,

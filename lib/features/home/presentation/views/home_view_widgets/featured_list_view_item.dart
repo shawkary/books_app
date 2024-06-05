@@ -1,13 +1,13 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:ibrahim_project/core/utiles/components.dart';
-import 'package:ibrahim_project/features/home/data/models/book_model/VolumeInfo.dart';
-import '../book_details_view_widgets/book_details_view_body.dart';
+import 'package:ibrahim_project/features/home/data/models/book_model/Items.dart';
+import '../book_details_view.dart';
 
 
 class FeaturedListViewItem extends StatelessWidget {
-  const FeaturedListViewItem(this.volumeInfo, {super.key});
-  final VolumeInfo volumeInfo;
+  const FeaturedListViewItem(this.item, {super.key});
+  final Items item;
 
 
   @override
@@ -15,7 +15,7 @@ class FeaturedListViewItem extends StatelessWidget {
     return GestureDetector(
       onTap: ()
       {
-        navigateTo(context, BookDetailsViewBody(volumeInfo));
+        navigateTo(context, BookDetailsView(item));
       },
       child: ClipRRect(
         borderRadius: BorderRadius.circular(10),
@@ -23,7 +23,7 @@ class FeaturedListViewItem extends StatelessWidget {
           aspectRatio: 1 / 1.6,
           child: CachedNetworkImage(
             fit: BoxFit.fill,
-            imageUrl: volumeInfo.imageLinks!.thumbnail!,
+            imageUrl: item.volumeInfo!.imageLinks!.thumbnail!,
             placeholder: (context, url) => const Center(child: CircularProgressIndicator()),
             errorWidget: (context, url, error) => const Icon(Icons.error),
           ),
